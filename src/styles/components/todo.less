@@ -1,0 +1,75 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: #60dd9e;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .title-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .description-container {
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    display: flex;
+    width: 100%;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+    }
+  }
+
+  .input-file {
+    display: none;
+  }
+
+  .cross,
+  .paper-clip {
+    width: 25px;
+    height: 25px;
+  }
+
+  .upload-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    .uplad-button {
+      width: 100px;
+      height: 30px;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: #6fd634;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #60b62e;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    .paper-clip {
+      cursor: pointer;
+      margin-right: 30px;
+    }
+  }
+}
