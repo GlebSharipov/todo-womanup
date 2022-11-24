@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Input } from "../Input";
+import paperClip from "../../assets/images/paper-clip.png";
+
 import {
   collection,
   addDoc,
@@ -7,7 +9,6 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
-
 import { db, imageRef } from "../../firebase";
 import { getDownloadURL, uploadString } from "firebase/storage";
 
@@ -18,6 +19,8 @@ export const ModalWindow = () => {
   const [selectedFile, setSelectedFile] = useState("");
   const [selectedFileName, setSelectedFileName] = useState("");
 
+  const imgRef = useRef(null);
+
   const handleAddNewTodo = async () => {
     if (title.trim()) {
       try {
@@ -26,6 +29,7 @@ export const ModalWindow = () => {
           description: description,
           dateOfCompletion: dateOfCompletion,
           completed: false,
+          timeIsUp: false,
           timestamp: serverTimestamp(),
         });
 
@@ -86,11 +90,33 @@ export const ModalWindow = () => {
         onChange={(e) => setDateOfCompletion(e.target.value)}
       />
 
-      <Input type="file" onChange={addFileToState} accept="image/*" />
+      <input
+        className="input-modal"
+        type="file"
+        onChange={addFileToState}
+        accept="image/*"
+        ref={imgRef}
+      />
 
-      <button type="submit" className="modal-button" onClick={handleAddNewTodo}>
-        Add new todo
-      </button>
+      <div className="button-container">
+        <button
+          type="submit"
+          className="modal-button"
+          onClick={handleAddNewTodo}
+        >
+          Add new todo
+        </button>
+        <img
+          className="paper-clip"
+          onClick={() => {
+            imgRef.current.click();
+          }}
+          src={paperClip}
+          alt="paper-clip"
+        />
+      </div>
+
+      {selectedFile && <p>File selected</p>}
     </div>
   );
 };

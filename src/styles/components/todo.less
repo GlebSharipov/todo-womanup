@@ -7,9 +7,12 @@
   border: 1px solid;
   border-radius: 5px;
   padding: 10px;
+  word-break: break-all;
 
-  h2 {
-    font-size: 20px;
+  .complited-todo {
+    width: 100%;
+    height: 30px;
+    text-align: end;
   }
 
   .title-container {
@@ -19,12 +22,30 @@
   }
 
   .description-container {
+    width: 100%;
     margin-bottom: 20px;
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    p,
+    h2 {
+      cursor: pointer;
+      border: 1px solid #60dd9e;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #4b8d25;
+      }
+    }
   }
 
   .image-container {
     display: flex;
     width: 100%;
+    margin-bottom: 10px;
 
     img {
       width: 40px;
@@ -48,6 +69,10 @@
     display: flex;
     justify-content: end;
     align-items: center;
+
+    .date {
+      flex: 1;
+    }
 
     .uplad-button {
       width: 100px;

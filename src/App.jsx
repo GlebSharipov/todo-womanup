@@ -36,6 +36,9 @@ function App() {
             dateOfCompletion,
             images,
             timestamp,
+            completed,
+            performed,
+            timeIsUp,
           } = todo;
           return (
             <Todo
@@ -46,6 +49,9 @@ function App() {
               images={images}
               todoId={id}
               time={timestamp}
+              completed={completed}
+              performed={performed}
+              timeIsUp={timeIsUp}
             />
           );
         })}
